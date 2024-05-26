@@ -19,7 +19,7 @@
 %
 % 06/04/2017  Lichterfeld, Robert-Vincent
 %             Überarbeitet: Aufgabe 2.1 c) Spirale mit umgekehrter
-%             Drehrichtung  
+%             Drehrichtung
 
 
 %% Aufräumen
@@ -31,7 +31,7 @@ clc;
 %% Aufgabe 2.1 a)
 %   Parameter initialisieren
 % Anzahl der Stützpunkte
-d = 16; 
+d = 16;
 % Stützpunkte           [rad]
 phiSt = 0 : ((2*pi)/d) : (2*pi);
 % Radius, fest          [m]
@@ -69,7 +69,7 @@ h_c = input('Bitte Hoehe der Kegelhelix in [mm] angeben: ')/1000;
 
 % Berechnen der Stützpunkthoehe für den Kegel
 % Hoehenstützpunkte                 [mm]
-z = 0: (h_c /(d*turns_b)) : h_c; 
+z = 0: (h_c /(d*turns_b)) : h_c;
 
 %% Erweiterung für Ue 3 - A 2.1 c)
 % Spirale mit umgekehrter Drehrichtung
@@ -84,7 +84,7 @@ y_3b = R_b.*sin(phiSt_3b);
 
 %% Darstellung Ue 3 - A 2.1 c)
 % Erstellen eines figure windows und dieses auf handle referenzieren
-fg01 = figure(1); 
+fg01 = figure(1);
 % Eigenschaften zum handle antragen, durch den Befehl set(...)
 set(fg01,'Name','Lösungsbeispiel | Uebung 3 - A2.1 c)','NumberTitle','on');
 % relative Angabe [left bottom width height]
@@ -102,7 +102,7 @@ grid on;
 % Titel für das Diagram - [mehrere Argumente]
 title(['Kreis mit Radius ', num2str(R), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
-xlabel('X-Achse (Abzisse)'); 
+xlabel('X-Achse (Abzisse)');
 % Y- Achsenbeschriftung
 ylabel('Y-Achse (Ordinate)');
 % Gitterlinien im Hintergrund
@@ -123,7 +123,7 @@ grid on;
 % Titel für das Diagram - [mehrere Argumente]
 title(['Kegelhelix mit der Höhe ', num2str(h_c), ' m'], 'FontSize', 14);
 % X-Achsenbeschriftung
-xlabel('X-Achse (Abzisse)'); 
+xlabel('X-Achse (Abzisse)');
 % Y-Achsenbeschriftung
 ylabel('Y-Achse (Ordinate)');
 % Z-Achsenbeschriftung
@@ -147,7 +147,7 @@ grid on;
 % Titel für das Diagram - [mehrere Argumente]
 title(['Spirale mit Startradius ', num2str(Rin_b), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
-xlabel('X-Achse (Abzisse)'); 
+xlabel('X-Achse (Abzisse)');
 % Y- Achsenbeschriftung
 ylabel('Y-Achse (Ordinate)');
 % Gitterlinien im Hintergrund
@@ -168,7 +168,7 @@ grid on;
 % Titel für das Diagram - [mehrere Argumente]
 title(['Inverse Spirale mit Startradius ', num2str(Rin_b), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
-xlabel('X-Achse (Abzisse)'); 
+xlabel('X-Achse (Abzisse)');
 % Y- Achsenbeschriftung
 ylabel('Y-Achse (Ordinate)');
 % Gitterlinien im Hintergrund
