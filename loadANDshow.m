@@ -43,10 +43,10 @@ legend('ca', 'cw');
 %% Daten Verarbeiten
 %   Grad abfragen
 % Abfrage ca
-%grdCa = input('Grad für ca angeben: ');
+%grdCa = input('Grad fÃ¼r ca angeben: ');
 grdCa = str2double(inputdlg ('Grad fuer ca angeben (6):', 'Eingabe polyfit ac'));
 % Abfrage cw
-%grdCw = input('Grad für cw angeben: ');
+%grdCw = input('Grad fÃ¼r cw angeben: ');
 grdCw = str2double(inputdlg ('Grad fuer cw angeben (6):', 'Eingabe polyfit aw'));
 
 % Berechnug der Koeffizienten durch die Funktion polyfit
@@ -62,9 +62,9 @@ koeffCw = polyfit(aoa, cw, grdCw);
 datName = 'ExportKoeff.csv';
 %   Dateinamen erfragen
 %datName = input('\nDateinamen angeben:\n', 's');
-% Header für Ca schreiben
+% Header fÃ¼r Ca schreiben
 headrCa = 'Werte-ca;';
-% Header für Cw schreiben
+% Header fÃ¼r Cw schreiben
 headrCw = 'Werte-cw;';
 % Ca - Werte schreiben
 valCa = sprintf('%.12f;', koeffCa);
@@ -72,19 +72,19 @@ valCa = sprintf('%.12f;', koeffCa);
 valCw = sprintf('%.12f;', koeffCw);
 
 % In Datei schreiben
-% Header für Ca in Datei schreiben
+% Header fÃ¼r Ca in Datei schreiben
 dlmwrite(datName, headrCa, "delimiter", "", "newline", "pc");
-% Ca - Werte zur Datei anhängen
+% Ca - Werte zur Datei anhÃ¤ngen
 dlmwrite(datName, valCa, "-append", ...
 "roffset", 0, "delimiter", "","newline", "pc");
 
-% Header für Cw in Datei schreiben
+% Header fÃ¼r Cw in Datei schreiben
 dlmwrite(datName, headrCw, "delimiter", "", "-append",...
 "roffset", 2, "newline", "pc");
-% Cw - Werte zur Datei anhängen
+% Cw - Werte zur Datei anhÃ¤ngen
 dlmwrite(datName, valCw, "-append",...
 "roffset", 0, "delimiter", "","newline", "pc");
 
 %% Funktion aufrufen
-%   Funkion mit Koeffizienten ausführen
+%   Funkion mit Koeffizienten ausfÃ¼hren
 flugScheibe(koeffCa, koeffCw);

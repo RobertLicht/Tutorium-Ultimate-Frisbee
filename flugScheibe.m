@@ -1,7 +1,7 @@
 function flugScheibe(caKoeff, cwKoeff)
 %% IWSW Tutorium
 %
-% Technische Universität Clausthal
+% Technische UniversitÃ¤t Clausthal
 %
 % Vorlesung: Ingenieurwissenschaftliche Software-Werkzeuge (IWSW)
 %
@@ -10,29 +10,29 @@ function flugScheibe(caKoeff, cwKoeff)
 %
 % Beschreibung:
 % Script mit Anweisungen zur Bearbeitung der Uebung 4.2
-% Diese Script-Funktion führt Berechnungen zum Flug einer Ultimate-Scheibe
+% Diese Script-Funktion fÃ¼hrt Berechnungen zum Flug einer Ultimate-Scheibe
 % aus und stellt die Ergebnisse in Grafiken dar.
 % Vereinfachend wird die Scheibe als Punktmasse angesehen. 
-% Zudem besteht die Annahme, dass der Abwurfwinkel über den 
+% Zudem besteht die Annahme, dass der Abwurfwinkel Ã¼ber den 
 % gesamten Flug beibehalten wird.
 %
 %......................................................................
-% Änderungslog
+% Ã„nderungslog
 %
 % 10/04/2017    Lichterfeld, Robert-Vincent
 %               Erstellen: Aufgabe 4.2
 %
 % 15/06/2017  Lichterfeld, Robert-Vincent 
-%             Überarbeiten: Prüfung der Nutzereingaben
+%             Ãœberarbeiten: PrÃ¼fung der Nutzereingaben
 
-%% Aufräumen
-% Ausgewähltes figure schließen
+%% AufrÃ¤umen
+% AusgewÃ¤hltes figure schlieÃŸen
 try
     % Aktive figures ermitteln
     aktveFig =  findobj('Type','figure');
-    % Nur figures größer 20 schließen
+    % Nur figures grÃ¶ÃŸer 20 schlieÃŸen
     if (max(aktveFig)) > 20
-        % Versuchen figure(22) zu schließen
+        % Versuchen figure(22) zu schlieÃŸen
         close (max(aktveFig));
     else
         % keine Aktion
@@ -46,19 +46,19 @@ end
 mS = 0.175;
 % Durchmesser der Scheibe                   [m]
 dS = 0.275;
-% Luftdichte bei 15 [°C] und 950 [hPa]      [kg/(m^3)]
+% Luftdichte bei 15 [Â°C] und 950 [hPa]      [kg/(m^3)]
 rohLuft = 1.144;
 % Erd-Gravitationsbeschleunigung            [m/(s^2)]
 g = 9.81;
-% Abwurfhöhe                                [m]
+% AbwurfhÃ¶he                                [m]
 hW = 1;
 % % Abwurfgeschwindigkeit                   [m/s]
 % vW = 5;
 % Zeitschritt                               [s]
 dt = (1/500);
 
-%   Berechnung weiterer Größen
-% Fläche der Scheibe
+%   Berechnung weiterer GrÃ¶ÃŸen
+% FlÃ¤che der Scheibe
 flA = pi * (dS^2)/4;
 % Zeitvektor
 t = dt : dt : 5;
@@ -71,19 +71,19 @@ t = dt : dt : 5;
 %     -0.000079411104, 0.000562234592, 0.038596639573, 0.118287597976];
 
 
-%   Prüfen der Parameter
-% Vektor der Auftriebsbeiwerte prüfen
+%   PrÃ¼fen der Parameter
+% Vektor der Auftriebsbeiwerte prÃ¼fen
 if (length(caKoeff)) == 7
     % keine Aktion
 else
-    msgGrdCa = 'Der Vektor zu ca muss genau 7 Einträge enthalten! (grdCa=6)';
+    msgGrdCa = 'Der Vektor zu ca muss genau 7 EintrÃ¤ge enthalten! (grdCa=6)';
     error(msgGrdCa);
 end
-% Vektor der Widerstandsbeiwerte prüfen
+% Vektor der Widerstandsbeiwerte prÃ¼fen
 if (length(cwKoeff)) == 7
     % keine Aktion
 else
-    msgGrdCw = 'Der Vektor zu cw muss genau 7 Einträge enthalten! (grdCw=6)';
+    msgGrdCw = 'Der Vektor zu cw muss genau 7 EintrÃ¤ge enthalten! (grdCw=6)';
     error(msgGrdCw);
 end
 
@@ -106,16 +106,16 @@ fpolyCw = @(x) (cwKoeff(1,1)*(x^6) + cwKoeff(1,2)*(x^5) + ...
 %   Abwurfgeschwindigkeit                    [m/s]
 %vW = input('Abwurfgeschwindigkeit eingeben (5 | 7) in [m/s]: ');
 vW = str2double(inputdlg ('Abwurfgeschwindigkeit eingeben (5 | 7) in [m/s]:', 'Eingabe zur Berechnung'));
-% Prüfen der Eingabe durch Funktionsaufruf
+% PrÃ¼fen der Eingabe durch Funktionsaufruf
 [vW] = eingabePRUEFvW(vW);
 
 %   Abwurfwinkel                              [deg]
 %aoaW = input('Abwurfwinkel eingeben ([-5, 45]) in [deg]: ');
 aoaW = str2double(inputdlg ('Abwurfwinkel eingeben ([-5, 45]) in [deg]:', 'Eingabe zur Berechnung'));
-% Prüfen der Eingabe durch Funktionsaufruf
+% PrÃ¼fen der Eingabe durch Funktionsaufruf
 [aoaW] = eingabePRUEFaoaW(aoaW);
 
-%   Schlupfwinkel !GESCHÄTZT!                 [deg]
+%   Schlupfwinkel !GESCHÃ„TZT!                 [deg]
 aoaS = (1/(vW*10+0.01))*(aoaW^2);
 % aoaS = log(aoaW^2);
 
@@ -132,7 +132,7 @@ cw = fpolyCw(aoaS);
 % vs = zeros((length(t)), 1);
 
 %   -> Initialberechnungen <-
-%   Kräfte an der Scheibe
+%   KrÃ¤fte an der Scheibe
 % Gewichtskraft
 gF = mS * g;
 % Auftriebskraft
@@ -175,7 +175,7 @@ vALT = sqrt((tv)^2 + (nv)^2);
 
 % Berechnung der weiteren Werte durch eine for-Schleife
 for ti = 2:(length(t))    
-    %   Kräfte an der Scheibe
+    %   KrÃ¤fte an der Scheibe
     % Auftriebskraft
     aF = (0.5 * ca * rohLuft * (vALT^2) * flA) - (gF * cosd(aoaS));
 %     aF = (0.5 * ca * rohLuft * (vALT^2) * flA);
@@ -235,11 +235,11 @@ if (ti == length(t)); ibreak = ti; end;
 %% Darstellung
 fgDisc = figure(22); 
 % Eigenschaften zum handle antragen, durch den Befehl set(...)
-set(fgDisc,'Name','Übung 4.2 Flugsimulation-Scheibe','NumberTitle','on');
+set(fgDisc,'Name','Ãœbung 4.2 Flugsimulation-Scheibe','NumberTitle','on');
 % relative Angabe [left bottom width height]
 set(fgDisc,'Units','normalized','Position',[0.12 0.22 0.62 0.6]);
 
-% Grafische Darstellung der Flughöhe über die Strecke
+% Grafische Darstellung der FlughÃ¶he Ã¼ber die Strecke
 ax = axes;
 set(ax,"xlim",[-5 20],"ylim",[0 10]);
 hold (ax);
@@ -253,7 +253,7 @@ set(fgDisc,'Units','normalized','Position',[0.12 0.22 0.62 0.6]);
 
 % % Derzeitige Grafik im figure behalten
 % hold on;
-% Grafische Darstellung der Flughöhe über die Strecke
+% Grafische Darstellung der FlughÃ¶he Ã¼ber die Strecke
 % plot(hs, vs, 'bo', hs, vDisc, 'gs', hs,hv,'dr', hs,vv,'*c', 'MarkerSize', 4);
 %   Fluggeschwindigkeit auf eigener Achse
 % % [AX,H1,H2] = plotyy(hs,vs,hs,vDisckmh);
@@ -268,12 +268,12 @@ plot(hs, vs, 'bo', 'MarkerSize', 4);
 grid on;
 
 %   Beschriftungen
-% Titel für das Diagram
+% Titel fÃ¼r das Diagram
 title('Flug der Scheibe', 'FontSize', 16);
 % X-Achsenbeschriftung
 xlabel('Flugstrecke in [m]', 'FontSize', 12); 
 % Y-Achsenbeschriftung
-ylabel('Flughöhe [m]', 'FontSize', 14);
+ylabel('FlughÃ¶he [m]', 'FontSize', 14);
 
 
 
@@ -286,7 +286,7 @@ plot(hs, vDisckmh, 'gs', 'MarkerSize', 4);
 grid on;
 
 %   Beschriftungen
-% Titel für das Diagram
+% Titel fÃ¼r das Diagram
 title('Fluggeschwindigkeit der Scheibe', 'FontSize', 16);
 % X-Achsenbeschriftung
 xlabel('Flugstrecke in [m]', 'FontSize', 12); 
@@ -296,7 +296,7 @@ ylabel('Fluggeschwindigkeit [km/h]', 'FontSize', 14);
 
 
 % % Beschriftung plotyy
-% set(get(AX(1),'Ylabel'),'String','Flughöhe [m]', 'FontSize', 14);
+% set(get(AX(1),'Ylabel'),'String','FlughÃ¶he [m]', 'FontSize', 14);
 % set(AX(1),'YTick',0:0.5:8);
 % set(get(AX(2),'Ylabel'),'String','Fluggeschwindigkeit [km/h]', 'FontSize', 14);
 % set(AX(2),'YTick',0:5:30);
@@ -311,18 +311,18 @@ ylabel('Fluggeschwindigkeit [km/h]', 'FontSize', 14);
 % axis equal;
 
 % % Legende auf handle referenzieren
-% % hlg01 = legend('Höhe [m]', 'Horizontalgeschwindigkeit [m/s]', 'hv', 'vv');
-% hlg01 = legend('Höhe [m]', 'Fluggeschwindigkeit [km/h]');
+% % hlg01 = legend('HÃ¶he [m]', 'Horizontalgeschwindigkeit [m/s]', 'hv', 'vv');
+% hlg01 = legend('HÃ¶he [m]', 'Fluggeschwindigkeit [km/h]');
 % 
 % % Einstellungen zum handle Legende
 % set(hlg01,'FontSize', 10, 'Location', 'SouthOutside',...
 %     'Orientation', 'horizontal');
 
 %% Informationen im Command Window
-%   Information über Maximalwerte
-% Maximale Flughöhe                         [m]
+%   Information Ã¼ber Maximalwerte
+% Maximale FlughÃ¶he                         [m]
 maxh = max(vs);
-%fprintf('\nMaximale Flughöhe:%.2f [m]\n', maxh);
+%fprintf('\nMaximale FlughÃ¶he:%.2f [m]\n', maxh);
 % Maximale Flugweite                        [m]
 maxs = max(hs);
 %fprintf('\nMaximale Flugweite:%.2f [m]\n', maxs);
@@ -337,7 +337,7 @@ msg1 = msgbox(fprnt1, 'Berechnungsergebnis', "help");
 
 %% Definition der Funktionen
 
-% Funktion zur Püfung der Eingabe zur Abwurfgeschwindigkeit
+% Funktion zur PÃ¼fung der Eingabe zur Abwurfgeschwindigkeit
     function [vW] = eingabePRUEFvW(vW)
         %   Eingabefehler(leer) abfangen
         while isempty(vW);
@@ -357,7 +357,7 @@ msg1 = msgbox(fprnt1, 'Berechnungsergebnis', "help");
     end
 
 
-% Funktion zur Püfung der Eingabe zum Abwurfwinkel
+% Funktion zur PÃ¼fung der Eingabe zum Abwurfwinkel
     function [aoaW] = eingabePRUEFaoaW(aoaW)
         %   Eingabefehler(leer) abfangen
         while isempty(aoaW);

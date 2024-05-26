@@ -1,6 +1,6 @@
 %% IWSW Tutorium
 %
-% Technische Universität Clausthal
+% Technische UniversitÃ¤t Clausthal
 %
 % Vorlesung: Ingenieurwissenschaftliche Softwarewerkzeuge (IWSW)
 %
@@ -12,34 +12,34 @@
 % Bearbeitung des Teils: Zum Warmwerden
 %
 %......................................................................
-% Änderungslog
+% Ã„nderungslog
 %
 % 2012-11-07    Ahlborn
-%               Erstellen: Ursprüngliche Musterlösung
+%               Erstellen: UrsprÃ¼ngliche MusterlÃ¶sung
 %
 % 06/04/2017  Lichterfeld, Robert-Vincent
-%             Überarbeitet: Aufgabe 2.1 c) Spirale mit umgekehrter
+%             Ãœberarbeitet: Aufgabe 2.1 c) Spirale mit umgekehrter
 %             Drehrichtung  
 
 
-%% Aufräumen
-% Ausgewählte Variablen löschen
+%% AufrÃ¤umen
+% AusgewÃ¤hlte Variablen lÃ¶schen
 clear R Rin_b d;
 % Command Window leeren
 clc;
 
 %% Aufgabe 2.1 a)
 %   Parameter initialisieren
-% Anzahl der Stützpunkte
+% Anzahl der StÃ¼tzpunkte
 d = 16; 
-% Stützpunkte           [rad]
+% StÃ¼tzpunkte           [rad]
 phiSt = 0 : ((2*pi)/d) : (2*pi);
 % Radius, fest          [m]
 % R = 2E-3;
 % Abfrage des Radius aus dem Command Window
 R = input('Bitte den Radius in [mm] angeben (Kreis): ')/1000;
 
-% Stützpunkte im kartesischen Koordinatensystem
+% StÃ¼tzpunkte im kartesischen Koordinatensystem
 % X-Koordinaten berechnen
 x = R*cos(phiSt);
 % Y-Koordinaten berechnen
@@ -52,11 +52,11 @@ Rin_b = input('Bitte den Radius in [mm] angeben (Spirale): ')/1000;
 % Abfrage der Windungen                     [-]
 turns_b = input('Windungen (Spirale): ');
 % Berechnen der Spiralkoordinaten
-% Stützpunkwinkel                           [rad]
+% StÃ¼tzpunkwinkel                           [rad]
 phiSt_b = 0 : ((2*pi) / d): (turns_b*2*pi);
-% Stützpunktradius                          [m]
+% StÃ¼tzpunktradius                          [m]
 R_b = Rin_b : ((-Rin_b) / (d*turns_b) ): 0;
-% Stützpunkte im kartesischen Koordinatensystem
+% StÃ¼tzpunkte im kartesischen Koordinatensystem
 % X-Koordinaten berechnen
 x_b = R_b.*cos(phiSt_b);
 % Y-Koordinaten berechnen
@@ -64,18 +64,18 @@ y_b = R_b.*sin(phiSt_b);
 
 %% Aufgabe 2.1 c)
 %   Weitere Parameter abfragen
-% Abfrage der Höhe                  [mm]
+% Abfrage der HÃ¶he                  [mm]
 h_c = input('Bitte Hoehe der Kegelhelix in [mm] angeben: ')/1000;
 
-% Berechnen der Stützpunkthoehe für den Kegel
-% Hoehenstützpunkte                 [mm]
+% Berechnen der StÃ¼tzpunkthoehe fÃ¼r den Kegel
+% HoehenstÃ¼tzpunkte                 [mm]
 z = 0: (h_c /(d*turns_b)) : h_c; 
 
-%% Erweiterung für Ue 3 - A 2.1 c)
+%% Erweiterung fÃ¼r Ue 3 - A 2.1 c)
 % Spirale mit umgekehrter Drehrichtung
-% Stützpunkwinkel                           [rad]
+% StÃ¼tzpunkwinkel                           [rad]
 phiSt_3b = (turns_b*2*pi) : ((-2*pi) / d): 0;
-% Stützpunkte im kartesischen Koordinatensystem
+% StÃ¼tzpunkte im kartesischen Koordinatensystem
 % X-Koordinaten berechnen
 x_3b = R_b.*cos(phiSt_3b);
 % Y-Koordinaten berechnen
@@ -86,7 +86,7 @@ y_3b = R_b.*sin(phiSt_3b);
 % Erstellen eines figure windows und dieses auf handle referenzieren
 fg01 = figure(1); 
 % Eigenschaften zum handle antragen, durch den Befehl set(...)
-set(fg01,'Name','Lösungsbeispiel | Uebung 3 - A2.1 c)','NumberTitle','on');
+set(fg01,'Name','LÃ¶sungsbeispiel | Uebung 3 - A2.1 c)','NumberTitle','on');
 % relative Angabe [left bottom width height]
 set(fg01,'Units','normalized','Position',[0.12 0.20 0.6 0.58]);
 
@@ -99,7 +99,7 @@ plot(x, y, '-b', 'LineWidth', 2);
 grid on;
 
 % Beschriftungen
-% Titel für das Diagram - [mehrere Argumente]
+% Titel fÃ¼r das Diagram - [mehrere Argumente]
 title(['Kreis mit Radius ', num2str(R), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
 xlabel('X-Achse (Abzisse)'); 
@@ -120,8 +120,8 @@ plot3(x_b, y_b, z, '-g', 'LineWidth', 2);
 grid on;
 
 % Beschriftungen
-% Titel für das Diagram - [mehrere Argumente]
-title(['Kegelhelix mit der Höhe ', num2str(h_c), ' m'], 'FontSize', 14);
+% Titel fÃ¼r das Diagram - [mehrere Argumente]
+title(['Kegelhelix mit der HÃ¶he ', num2str(h_c), ' m'], 'FontSize', 14);
 % X-Achsenbeschriftung
 xlabel('X-Achse (Abzisse)'); 
 % Y-Achsenbeschriftung
@@ -144,7 +144,7 @@ plot(x_b, y_b, '-cs', 'LineWidth', 2);
 grid on;
 
 % Beschriftungen
-% Titel für das Diagram - [mehrere Argumente]
+% Titel fÃ¼r das Diagram - [mehrere Argumente]
 title(['Spirale mit Startradius ', num2str(Rin_b), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
 xlabel('X-Achse (Abzisse)'); 
@@ -165,7 +165,7 @@ plot(x_3b, y_3b, '-cd', 'LineWidth', 2);
 grid on;
 
 % Beschriftungen
-% Titel für das Diagram - [mehrere Argumente]
+% Titel fÃ¼r das Diagram - [mehrere Argumente]
 title(['Inverse Spirale mit Startradius ', num2str(Rin_b), ' m'], 'FontSize', 14);
 % X- Achsenbeschriftung
 xlabel('X-Achse (Abzisse)'); 
