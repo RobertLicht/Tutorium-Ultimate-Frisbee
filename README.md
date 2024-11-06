@@ -3,10 +3,10 @@ Example Scripts and Data from tutorial sessions at TU Clausthal, showing the usa
 
 ![Failed to show image EURODISC175CFXvec.png](EURODISC175CFXvec.png "Flow velocity - Simulated using ANSYS 17.2")
 ---
-[![Failed_to_show_video_BasicFlowSimulation_SimpleDiskModel.mp4](BasicFlowSimulation_SimpleDiskModel.mp4)](BasicFlowSimulation_SimpleDiskModel.mp4)
+![Failed to show a basic flow simulation of a simplyfied model of the Disk](BasicFlowSimulation-SimpleDiskModel.gif)
+
 ---
-[![Watch the video](https://raw.githubusercontent.com/RobertLicht/Tutorium-Ultimate-Frisbee/blob/main/EURODISC175CFXvec.png)](https://raw.githubusercontent.com/RobertLicht/Tutorium-Ultimate-Frisbee/blob/main/BasicFlowSimulation_SimpleDiskModel.mp4)
-----
+
 ## Quick links
 * [Overview](#overview)
 * [Requirements](#requirements)
